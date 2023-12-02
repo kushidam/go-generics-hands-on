@@ -47,7 +47,13 @@ func main() {
 		SumInts(ints),
 		SumFloats(floats))
 
+	// 基本的には、型引数を指定する必要がある
 	fmt.Printf("Generic Sums: %v and %v\n",
 		SumIntsOrFloats[string, int64](ints),
 		SumIntsOrFloats[string, float64](floats))
+
+	// Go コンパイラーが使用する型を推測できる場合は、呼び出しコードで型引数を省略できる
+	fmt.Printf("Generic Sums, type parameters inferred: %v and %v\n",
+		SumIntsOrFloats(ints),
+		SumIntsOrFloats(floats))
 }
